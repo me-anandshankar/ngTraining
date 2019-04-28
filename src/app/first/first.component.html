@@ -1,0 +1,7 @@
+<h1> It is parent component</h1>
+<input [ngModel] = 'name'  /> 
+
+
+
+<h1>It is child component</h1>
+<app-first-child [message] = "name" (notifyParent) = "gotFromChild($event)"></app-first-child>
