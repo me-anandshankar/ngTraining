@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { FirstChildComponent } from './first-child/first-child.component';
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -15,9 +17,10 @@ import { FirstChildComponent } from './first-child/first-child.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [FirstComponent]
 })
 export class AppModule { }
