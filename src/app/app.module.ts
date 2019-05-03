@@ -7,20 +7,28 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { FirstChildComponent } from './first-child/first-child.component';
 import { DataService } from './data.service';
+import { SecondChildComponent } from './second-child/second-child.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { Page1Component } from './page1/page1.component';
+import { Page2Component } from './page2/page2.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    FirstChildComponent
+    FirstChildComponent,
+    SecondChildComponent,
+    Page1Component,
+    Page2Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [DataService],
-  bootstrap: [FirstComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
