@@ -1,3 +1,29 @@
-<p>
-  page2 works!
-</p>
+<div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" required name="name" class="form-control" ngModel #myTemp #myProp = "ngModel" />
+      <div [hidden]="myProp.valid || myProp.untouched"
+      class="alert alert-danger">
+      Enter a name
+    </div>
+    </div>
+    <div>{{myTemp.value | uppercase }}</div>
+    <div>{{myTemp.className }}</div>
+    <div>{{ myProp.dirty }}</div>
+    <div>{{ myProp.valid }}</div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input id="address" required name="address" class="form-control" ngModel #validationAdd #validationAddProp="ngModel"
+      [class.field-error]="form.submitted && validationAddProp.invalid">
+      <div [hidden]="!form.submitted || validationAddProp.valid"
+        class="alert alert-danger">
+        Enter an address
+      </div>
+    </div>
+
+    <button class="btn btn-primary">Send</button>
+  </form>
+</div>
